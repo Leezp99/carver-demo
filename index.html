@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carver · Demo</title>
+  <link rel="stylesheet" href="css/style.css?v=ls9" />
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow"><strong>C</strong>ontent-<strong>A</strong>daptive variable-<strong>R</strong>ate speech <strong>V</strong>A<strong>E</strong> via <strong>R</strong>econstruction-error routing</p>
+    <h1>Carver</h1>
+    <p class="lede">
+      A single continuous speech VAE that scores each frame by its waveform
+      reconstruction error to keep or drop it. A multi-rate masking curriculum
+      lets one set of weights span a continuous frame-rate–distortion curve,
+      dropping silence first and protecting unpredictable unvoiced frames.
+    </p>
+    <p class="links">
+      <a href="https://github.com/Leezp99/carver" id="link-paper" target="_blank" rel="noopener">Paper</a>
+      <span class="dot">·</span>
+      <a href="https://github.com/Leezp99/carver" id="link-code" target="_blank" rel="noopener">Code</a>
+    </p>
+  </header>
+
+  <main>
+    <section id="method" class="section">
+      <h2>How Carver works</h2>
+      <p class="sub">
+        Carver is a single continuous speech VAE. A stop-gradient full-frame
+        decode scores each latent frame by its <em>waveform reconstruction
+        error</em>; a top-k gate keeps the hardest frames and drops the rest,
+        using no external ASR/SSL teacher and no separate routing network. A multi-rate
+        masking curriculum trains one set of weights across a continuous
+        frame-rate–distortion curve, so the same model spans full rate down to
+        aggressive compression. At inference, an <em>auto</em> mode picks a
+        per-utterance rate that drops silence and redundant frames first while
+        protecting unpredictable unvoiced sounds.
+      </p>
+      <figure class="method-fig">
+        <img src="figs/method.png?v=ls8" alt="Carver architecture: reconstruction-error routing + multi-rate masking" />
+      </figure>
+    </section>
+
+    <section id="baselines" class="section">
+      <h2>Reconstruction comparison</h2>
+      <p class="sub">
+        Same LibriSpeech test-clean utterances, scored with one pipeline for every
+        system.<br />
+        <em>Latent Rate</em> = frame rate × latent dim (Carver full rate =
+        25 Hz × 64 = 1600), a direct measure of latent size.<br />
+        <em>auto</em> uses the realized per-utterance keep rate.
+      </p>
+      <div class="sample-tabs" id="base-tabs" role="tablist"></div>
+      <p class="transcript" id="base-transcript"></p>
+      <div class="compare-table-wrap">
+        <table class="compare-table" id="base-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Latent Rate <span class="th-unit">(Hz×dim)</span></th>
+              <th>Listen</th>
+            </tr>
+          </thead>
+          <tbody id="base-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="explorer" class="section wide">
+      <h2>Rate explorer</h2>
+      <p class="sub">
+        Drag the keep-rate slider and listen. The stacked panel shows, top to
+        bottom, the <strong>waveform</strong>, the per-frame <strong>routing
+        score</strong> (the router's reconstruction-difficulty signal), the
+        <strong>log-mel</strong> spectrogram, and the MFA-aligned
+        <strong>word</strong> and <strong>phone</strong> tiers. Pink bands mark
+        the frames <strong>dropped</strong> at the current rate. Watch them fall
+        on silence and steady vowel interiors first, while consonant onsets and
+        fricatives are kept.
+      </p>
+      <p class="sub note">
+        The phone tier is colored by voicing (silence / unvoiced / voiced, see
+        the legend beneath the panel). Readouts (top-right):
+        <strong>kept</strong> = fraction of frames retained (k/T);
+        <strong>mel</strong> = multi-scale log-mel L1 error vs. ground truth
+        (lower is better); <strong>SI-SDR</strong> = scale-invariant
+        signal-to-distortion ratio in dB (higher is better).
+      </p>
+      <div class="sample-tabs" id="exp-tabs" role="tablist"></div>
+
+      <div class="explorer-card">
+        <div class="explorer-toolbar">
+          <label class="rate-label">
+            Keep rate
+            <span id="rate-value">1.00</span>
+          </label>
+          <input type="range" id="rate-slider" min="0" max="19" step="1" value="0" />
+          <div class="rate-ticks" id="rate-ticks"></div>
+          <button type="button" class="btn-auto" id="btn-auto">auto</button>
+          <button type="button" class="btn-play" id="btn-play" aria-label="Play">▶</button>
+          <audio id="exp-audio" preload="auto"></audio>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="wave-canvas" width="1200" height="220"></canvas>
+        </div>
+        <details class="stack-details">
+          <summary>Static multi-rate stack</summary>
+          <img id="stack-img" alt="rate stack" />
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Carver · <strong>C</strong>ontent-<strong>A</strong>daptive variable-<strong>R</strong>ate speech <strong>V</strong>A<strong>E</strong> via <strong>R</strong>econstruction-error routing</p>
+  </footer>
+
+  <script src="js/wave.js?v=ls10"></script>
+  <script src="js/main.js?v=ls10"></script>
+</body>
+</html>

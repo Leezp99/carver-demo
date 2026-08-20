@@ -1,0 +1,160 @@
+{
+  "ckpt": "s2_v2_infotok_l1/1120k",
+  "dataset": "LibriSpeech test-clean",
+  "sample_rate": 24000,
+  "hop": 960,
+  "rates": [
+    "1.00",
+    "0.95",
+    "0.90",
+    "0.85",
+    "0.80",
+    "0.75",
+    "0.70",
+    "0.65",
+    "0.60",
+    "0.55",
+    "0.50",
+    "0.45",
+    "0.40",
+    "0.35",
+    "0.30",
+    "0.25",
+    "0.20",
+    "0.15",
+    "0.10",
+    "0.05"
+  ],
+  "baselines": [
+    {
+      "id": "mingtok_audio",
+      "name": "MingTok"
+    },
+    {
+      "id": "dots_tts",
+      "name": "Dots.TTS"
+    },
+    {
+      "id": "losatok",
+      "name": "LoSATok"
+    },
+    {
+      "id": "semantic_vae",
+      "name": "SemanticVAE"
+    },
+    {
+      "id": "voxcpm2",
+      "name": "VoxCPM2"
+    },
+    {
+      "id": "vibevoice",
+      "name": "VibeVoice"
+    },
+    {
+      "id": "flexicodec_nq8_12hz",
+      "name": "FlexiCodec (RVQ8) 12.5Hz"
+    },
+    {
+      "id": "flexicodec_nq8_8hz",
+      "name": "FlexiCodec (RVQ8) 8.3Hz"
+    }
+  ],
+  "samples": [
+    {
+      "id": "4992-23283-0019",
+      "label": "A",
+      "sex": "F",
+      "duration": 6.56,
+      "auto_rate": 0.7195121943950653,
+      "transcript": "I will make no unjust use of what I know he replied with firmness I believe you my lord"
+    },
+    {
+      "id": "237-126133-0013",
+      "label": "B",
+      "sex": "F",
+      "duration": 6.8,
+      "auto_rate": 0.5764705836772919,
+      "transcript": "I know gasped polly controlling her sobs I won't only I can't thank you"
+    },
+    {
+      "id": "5683-32865-0004",
+      "label": "C",
+      "sex": "F",
+      "duration": 7.36,
+      "auto_rate": 0.72826087474823,
+      "transcript": "Whatever lord chelford said miss brandon received it very graciously and even with a momentary smile"
+    },
+    {
+      "id": "121-127105-0035",
+      "label": "D",
+      "sex": "F",
+      "duration": 14.12,
+      "auto_rate": 0.6033994257450104,
+      "transcript": "She promised to do this and she mentioned to me that when for a moment disburdened delighted he held her hand thanking her for the sacrifice she already felt rewarded"
+    },
+    {
+      "id": "8555-284447-0010",
+      "label": "E",
+      "sex": "F",
+      "duration": 12.92,
+      "auto_rate": 0.7306501567363739,
+      "transcript": "Control yourselves my dears replied the boolooroo the worst punishment I know how to inflict on anyone this prisoner is about to suffer you'll see a very pretty patching my royal daughters"
+    },
+    {
+      "id": "2961-961-0004",
+      "label": "F",
+      "sex": "F",
+      "duration": 11.48,
+      "auto_rate": 0.7108013927936554,
+      "transcript": "Listen then socrates to a tale of solon's who being the friend of dropidas my great grandfather told it to my grandfather critias and he told me"
+    },
+    {
+      "id": "5639-40744-0010",
+      "label": "G",
+      "sex": "M",
+      "duration": 4.12,
+      "auto_rate": 0.7961165010929108,
+      "transcript": "It is the only amends I ask of you for the wrong you have done me"
+    },
+    {
+      "id": "7021-79740-0003",
+      "label": "H",
+      "sex": "M",
+      "duration": 4.96,
+      "auto_rate": 0.7177419364452362,
+      "transcript": "To give an idea of these conversations I will report one of them in full"
+    },
+    {
+      "id": "2300-131720-0041",
+      "label": "I",
+      "sex": "M",
+      "duration": 3.72,
+      "auto_rate": 0.7634408622980118,
+      "transcript": "We had meters in which there were two bottles of liquid"
+    },
+    {
+      "id": "8224-274384-0007",
+      "label": "J",
+      "sex": "M",
+      "duration": 6.2,
+      "auto_rate": 0.6709677278995514,
+      "transcript": "Have mercy lord on me I pray for men would me devour"
+    },
+    {
+      "id": "7021-79740-0011",
+      "label": "K",
+      "sex": "M",
+      "duration": 10.28,
+      "auto_rate": 0.7081712186336517,
+      "transcript": "So saying she led the way on tiptoe followed by the children out of the room and round by a circuitous route to the piazza there"
+    },
+    {
+      "id": "7127-75947-0040",
+      "label": "L",
+      "sex": "M",
+      "duration": 13.76,
+      "auto_rate": 0.7093023359775543,
+      "transcript": "In this way the fete of the whole court was a fete also for the mysterious inhabitants of the forest for certainly the deer in the brake the pheasant on the branch the fox in its hole were all listening"
+    }
+  ]
+}
